@@ -1,10 +1,11 @@
 var express = require('express');
+var fs = require('fs');
 
 var app = express.createServer(express.logger());
 
-var title = fs.readFileSync('index.html').toString();
 app.get('/', function(request, response) {
   // response.send('Hello World 2!');
+  var title = fs.readFileSync('index.html').toString();
   response.send(title);
 });
 
